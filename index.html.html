@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    body {
+      overflow: hidden;
+      background-color: black;
+      color: white;
+    }
+    .main-container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .child-container {
+      display: flex;
+      width: 100vw;
+    }
+
+
+    .pulled-santa {
+      animation: comeNewYear 2s forwards;
+      display: flex;
+      /* position: absolute; */
+      margin-left: -1100px;
+      transition: margin-left 0.5s ease;
+
+
+    }
+
+  
+
+    @keyframes comeNewYear {
+      
+      0% {
+        margin-left: -900px;
+        margin-top: 20px;
+
+      }
+      25% {
+      margin-left: -500px;
+      margin-top: 0px;
+
+
+      }
+
+      50% {
+        margin-left: -300px;
+        margin-top: 20px;
+
+
+      }
+      75% {
+        margin-left: 0px;
+        margin-top: 20px;
+
+      }
+      100% {
+      margin-left: 280px;
+      margin-top: 0px;
+
+      }
+      
+    }
+
+    .child-container p {
+      font-size : 200px;
+    }
+
+    .num-202 {
+      margin-left: 500px;
+      transition: margin-left 0.5s ease;
+    }
+
+    .num-2023 {
+      display: flex;
+      
+    }
+
+    .gift-box img {
+      width: 200px;
+      margin-top: 210px;
+      margin-right: 30px;
+      animation: shakeGiftBox 1s infinite; /* Shake animation */
+      cursor: pointer;
+    }
+
+    @keyframes shakeGiftBox {
+      0% {
+        transform: rotate(30deg);
+      }
+      25% {
+        transform: rotate(-30deg);
+      }
+      50% {
+        transform:rotate(30deg);
+      }
+      75% {
+        transform:rotate(-30deg);
+      }
+      100% {
+        transform: rotate(30deg);
+      }
+    }
+    
+
+
+  
+    
+    .num-4 p{
+      height: 200px;
+      width: 200px;
+      margin-left: 700px;
+      background-color:black;
+      box-shadow: 0 2px 5px rgb(214, 133, 133);
+      border-radius: 50%;
+      text-align: center;
+      transition: margin-left 0.5s ease, opacity 0.5s ease;
+    }
+
+    .num-4 p{
+      animation: kick 2s forwards;
+    }
+
+    .num-shake {
+      animation: shakeAdistha .5s forwards;
+      position: absolute;
+    }
+
+    .num-shake4 {
+      margin-left: 900px;
+    }
+
+    .kick-2023 {
+      animation: kickAway2023 2s forwards;
+    }
+
+
+    
+
+    @keyframes kickAway2023 {
+      0% {
+        margin-left: 200px;
+      }
+      25% {
+        margin-left: 400px;
+      }
+      50% {
+        margin-left: 600px; 
+      }
+      75% {
+        margin-left: 800px;
+      }
+      100% {
+        margin-left: 1100px;
+      }
+    }
+
+
+    @keyframes shakeAdistha {
+      0% {
+        margin-left: 0px;
+      }
+      50% {
+        margin-left:-500px;
+      }
+
+      100% {
+        margin-left: 0px;
+      }
+    }
+
+    @keyframes kick {
+      50% {
+        margin-left: 0px;
+      }
+      100% {
+        margin-left: 700px;
+      }
+      
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="jingle-bells.mp3" type="audio/mp3">
+    Your browser does not support the audio tag.
+  </audio>
+  <div class="main-container">
+    <div class="child-container">
+      <div class="santa-pull">
+        
+        
+      </div>
+      <div class="num-2023">
+        <div class="num-202">
+          <p> 202 </p>
+        </div>
+        <div class="num-3">
+          <p> 3 </p>
+        </div>
+
+      </div>
+      
+      <div class="num-4">
+        <p> 4 </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+      // Add the class "num-shake" after a delay when the mouse hovers over the main container
+      setTimeout(() => {
+        var changeClass = document.querySelector(".num-2023");
+        changeClass.classList.add("num-shake");
+        var changeClass4 = document.querySelector(".num-4");
+        changeClass4.classList.add("num-shake4");
+      }, 700);
+  
+      setTimeout(() => {
+        var pullSanta = document.querySelector(".santa-pull");
+        pullSanta.innerHTML = `
+          <div class="pulled-santa">
+            <div class="gift-box">
+              <a  href = "new-year-info.html"> <img class="gift-box-img" src = "Gift-box.png"> </a>
+            </div>
+            <div class="new-year">
+              <p> 2024 <p>
+            </div>
+            <div class="santa-img">
+              <img src="Santa.png">
+              
+            </div>
+             
+          </div>
+        `;
+  
+        // Add a class to "2023" to push it away
+        addPushAway();
+
+        
+        
+      }, 2000);
+
+      setTimeout(()=> {
+        alert(`Santa got you a surprise
+Click on Gift Box to Open it`)
+      },4000)
+
+  
+    function addPushAway() {
+      var pushAway2023 = document.querySelector(".num-2023");
+        pushAway2023.classList.add("kick-2023");
+    }
+  </script>
+  
+
+</body>
+</html>
